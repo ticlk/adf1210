@@ -1,0 +1,13 @@
+{
+	"name": "HttpServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://microsoftinternal.sharepoint.cn/sites/lihong/_api/web/GetFileByServerRelativeUrl('/sites/lihong/Shared%20Documents/excelfile1209.xlsx')/$value",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

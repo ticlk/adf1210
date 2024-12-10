@@ -1,0 +1,15 @@
+{
+	"name": "SharePointOnlineList1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SharePointOnlineList",
+		"typeProperties": {
+			"siteUrl": "https://microsoftinternal.sharepoint.cn/:x:/r/sites/lihong",
+			"tenantId": "b388b808-0ec9-4a09-a414-a7cbbd8b7e9b",
+			"servicePrincipalId": "08715978-21cf-4596-b843-302dee41e8fd",
+			"servicePrincipalCredentialType": "ServicePrincipalKey",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERjExMDhfNmVkNjA3NDQtMTZhOC00YWEzLTg1NjMtM2VkNjU4OWQyZDc3Ig0KfQ=="
+		}
+	}
+}
