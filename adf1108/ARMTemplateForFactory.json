@@ -951,7 +951,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileSystem": "data"
+						"fileSystem": "sink"
 					}
 				},
 				"schema": {
