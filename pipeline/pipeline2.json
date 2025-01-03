@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
-				"type": "ExecuteDataFlow",
+				"name": "Copy data1",
+				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,16 +15,109 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
 					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
 					},
-					"traceLevel": "Fine"
-				}
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['owner']"
+								},
+								"sink": {
+									"path": "owner"
+								}
+							},
+							{
+								"source": {
+									"path": "$['logGroup']"
+								},
+								"sink": {
+									"path": "logGroup"
+								}
+							},
+							{
+								"source": {
+									"path": "$['logStream']"
+								},
+								"sink": {
+									"path": "logStream"
+								}
+							},
+							{
+								"source": {
+									"path": "$['subscriptionFilters'][0]"
+								},
+								"sink": {
+									"path": "subscriptionFilters"
+								}
+							},
+							{
+								"source": {
+									"path": "$['messageType']"
+								},
+								"sink": {
+									"path": "messageType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['logEvents'][0]['id']"
+								},
+								"sink": {
+									"path": "logeventsid"
+								}
+							},
+							{
+								"source": {
+									"path": "$['logEvents'][0]['timestamp']"
+								},
+								"sink": {
+									"path": "logeventtime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['logEvents'][0]['message']['availability_zone']"
+								},
+								"sink": {
+									"path": "logeventmessage"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Json2",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": [],
