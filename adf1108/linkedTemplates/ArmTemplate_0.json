@@ -473,7 +473,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "data.txt",
+						"fileName": "data.json",
 						"fileSystem": "data"
 					}
 				},
