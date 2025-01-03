@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf1108"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"SharePointOnlineList1_servicePrincipalKey": {
+			"value": ""
+		},
+		"alexstoragen3_accountKey": {
+			"value": ""
+		},
+		"storage_copy_test_connectionString": {
+			"value": ""
+		},
+		"test0523_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://storagee1203.dfs.core.chinacloudapi.cn/"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://functiontest.chinacloudsites.cn"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sql1111.database.chinacloudapi.cn"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "db"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "lihong"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://microsoftinternal.sharepoint.cn/sites/lihong/_api/web/GetFileByServerRelativeUrl('/sites/lihong/Shared%20Documents/excelfile1209.xlsx')/$value"
+		},
+		"SharePointOnlineList1_properties_typeProperties_servicePrincipalId": {
+			"value": "08715978-21cf-4596-b843-302dee41e8fd"
+		},
+		"alexstoragen3_properties_typeProperties_url": {
+			"value": "https://alexstoragen3.dfs.core.chinacloudapi.cn/"
+		},
+		"test0523_properties_typeProperties_url": {
+			"value": "https://test0523.dfs.core.chinacloudapi.cn/"
+		},
+		"selfIR_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/413eb882-b134-4b64-b202-519e1fe3a994/resourcegroups/AlexDataFactory/providers/Microsoft.DataFactory/factories/AlexDatafactory/integrationruntimes/integrationRuntime1"
+		},
+		"alexstoragen3_properties_privateLinkResourceId": {
+			"value": "/subscriptions/413eb882-b134-4b64-b202-519e1fe3a994/resourceGroups/AlexCong/providers/Microsoft.Storage/storageAccounts/alexstoragen3"
+		},
+		"alexstoragen3_properties_groupId": {
+			"value": "dfs"
+		},
+		"alexstoragen3_properties_fqdns": {
+			"value": [
+				"alexstoragen3.dfs.core.chinacloudapi.cn"
+			]
+		}
+	}
+}
