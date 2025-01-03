@@ -6,34 +6,67 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "Json3",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "source2"
 				}
 			],
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText1",
+						"referenceName": "Json4",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "flatten1"
+				},
+				{
+					"name": "derivedColumn1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
-				"          id as integer,",
-				"          fname as string,",
-				"          fnum as decimal(7,5)",
+				"          owner as string,",
+				"          logGroup as string,",
+				"          logStream as string,",
+				"          subscriptionFilters as string[],",
+				"          messageType as string,",
+				"          logEvents as (id as string, timestamp as integer, message as string)[]",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> source2",
+				"source2 foldDown(unroll(logEvents),",
+				"     mapColumn(",
+				"          owner,",
+				"          logGroup,",
+				"          logStream,",
+				"          messageType,",
+				"          id = logEvents.id,",
+				"          message = logEvents.message",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 derive(message = regexExtract(message, '\\\"type\":\\\"([^\\\"]+)\\\"', 1)) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          owner as string,",
+				"          logGroup as string,",
+				"          logStream as string,",
+				"          subscriptionFilters as string[],",
+				"          messageType as string,",
+				"          logEvents as (id as string, timestamp as integer, message as string)[]",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
