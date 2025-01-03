@@ -138,9 +138,6 @@
 					"storage_copy_test_connectionString": {
 						"value": "[parameters('storage_copy_test_connectionString')]"
 					},
-					"alexstoragen3_accountKey": {
-						"value": "[parameters('alexstoragen3_accountKey')]"
-					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
@@ -164,9 +161,6 @@
 					},
 					"selfIR_properties_typeProperties_linkedInfo_resourceId": {
 						"value": "[parameters('selfIR_properties_typeProperties_linkedInfo_resourceId')]"
-					},
-					"alexstoragen3_properties_typeProperties_url": {
-						"value": "[parameters('alexstoragen3_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -186,8 +180,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"alexstoragen3_accountKey": {
+						"value": "[parameters('alexstoragen3_accountKey')]"
+					},
 					"test0523_accountKey": {
 						"value": "[parameters('test0523_accountKey')]"
+					},
+					"alexstoragen3_properties_typeProperties_url": {
+						"value": "[parameters('alexstoragen3_properties_typeProperties_url')]"
 					},
 					"test0523_properties_typeProperties_url": {
 						"value": "[parameters('test0523_properties_typeProperties_url')]"
