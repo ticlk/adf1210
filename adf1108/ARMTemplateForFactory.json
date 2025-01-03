@@ -369,8 +369,8 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data1",
-						"type": "Copy",
+						"name": "Data flow1",
+						"type": "ExecuteDataFlow",
 						"dependsOn": [],
 						"policy": {
 							"timeout": "0.12:00:00",
@@ -381,111 +381,22 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"source": {
-								"type": "JsonSource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "JsonReadSettings"
+							"dataflow": {
+								"referenceName": "dataflow1",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"source2": {},
+									"sink1": {}
 								}
 							},
-							"sink": {
-								"type": "JsonSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "JsonWriteSettings"
-								}
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
 							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"path": "$['owner']"
-										},
-										"sink": {
-											"path": "owner"
-										}
-									},
-									{
-										"source": {
-											"path": "$['logGroup']"
-										},
-										"sink": {
-											"path": "logGroup"
-										}
-									},
-									{
-										"source": {
-											"path": "$['logStream']"
-										},
-										"sink": {
-											"path": "logStream"
-										}
-									},
-									{
-										"source": {
-											"path": "$['subscriptionFilters'][0]"
-										},
-										"sink": {
-											"path": "subscriptionFilters"
-										}
-									},
-									{
-										"source": {
-											"path": "$['messageType']"
-										},
-										"sink": {
-											"path": "messageType"
-										}
-									},
-									{
-										"source": {
-											"path": "$['logEvents'][0]['id']"
-										},
-										"sink": {
-											"path": "logeventsid"
-										}
-									},
-									{
-										"source": {
-											"path": "$['logEvents'][0]['timestamp']"
-										},
-										"sink": {
-											"path": "logeventtime"
-										}
-									},
-									{
-										"source": {
-											"path": "$['logEvents'][0]['message']['availability_zone']"
-										},
-										"sink": {
-											"path": "logeventmessage"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "Json1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Json2",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+							"traceLevel": "Fine"
+						}
 					}
 				],
 				"policy": {
@@ -495,8 +406,7 @@
 				"lastPublishTime": "2024-11-18T07:11:10Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Json1')]",
-				"[concat(variables('factoryId'), '/datasets/Json2')]"
+				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
 			]
 		},
 		{
