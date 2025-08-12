@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
-				"type": "Copy",
+				"name": "Web1",
+				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,40 +15,20 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "BinarySource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true
-						},
-						"formatSettings": {
-							"type": "BinaryReadSettings"
-						}
+					"method": "POST",
+					"url": "https://management.chinacloudapi.cn/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourcegroups/rg0427/providers/Microsoft.DataFactory/factories/adf0213dev/integrationruntimes/integrationRuntime7/start?api-version=2018-06-01",
+					"body": {
+						"message": "start ir"
 					},
-					"sink": {
-						"type": "BinarySink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						}
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "Binary1",
-						"type": "DatasetReference"
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.chinacloudapi.cn"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Binary2",
-						"type": "DatasetReference"
-					}
-				]
+				}
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2024-11-11T09:34:43Z"
+		"lastPublishTime": "2025-07-16T05:19:33Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

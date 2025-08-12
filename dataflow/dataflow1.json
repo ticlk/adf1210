@@ -6,16 +6,16 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Json3",
+						"referenceName": "adlsdataset01",
 						"type": "DatasetReference"
 					},
-					"name": "source2"
+					"name": "source1"
 				}
 			],
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "Json4",
+						"referenceName": "DelimitedText3",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -23,50 +23,29 @@
 			],
 			"transformations": [
 				{
-					"name": "flatten1"
-				},
-				{
-					"name": "derivedColumn1"
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
-				"          owner as string,",
-				"          logGroup as string,",
-				"          logStream as string,",
-				"          subscriptionFilters as string[],",
-				"          messageType as string,",
-				"          logEvents as (id as string, timestamp as integer, message as string)[]",
+				"          id as integer,",
+				"          column1 as string,",
+				"          column2 as string,",
+				"          column3 as string,",
+				"          column4 as string,",
+				"          created_at as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'singleDocument') ~> source2",
-				"source2 foldDown(unroll(logEvents),",
-				"     mapColumn(",
-				"          owner,",
-				"          logGroup,",
-				"          logStream,",
-				"          messageType,",
-				"          id = logEvents.id,",
-				"          message = logEvents.message",
-				"     ),",
-				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1",
-				"flatten1 derive(message = regexExtract(message, '\\\"type\":\\\"([^\\\"]+)\\\"', 1)) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 aggregate(groupBy(column1),",
+				"     column3 = count()) ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          owner as string,",
-				"          logGroup as string,",
-				"          logStream as string,",
-				"          subscriptionFilters as string[],",
-				"          messageType as string,",
-				"          logEvents as (id as string, timestamp as integer, message as string)[]",
+				"          ID as string,",
+				"          { FNAME} as string",
 				"     ),",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]

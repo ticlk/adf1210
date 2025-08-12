@@ -1,17 +1,13 @@
 {
-	"name": "Binary3",
+	"name": "AzureSqlTable3",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "FtpServer1",
+			"referenceName": "AzureSqlDatabase2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Binary",
-		"typeProperties": {
-			"location": {
-				"type": "FtpServerLocation"
-			}
-		}
+		"type": "AzureSqlTable",
+		"schema": []
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }

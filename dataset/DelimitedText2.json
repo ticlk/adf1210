@@ -1,17 +1,16 @@
 {
-	"name": "DelimitedText1",
+	"name": "DelimitedText2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"folderPath": "test02/subn2",
-				"fileSystem": "adftest"
+				"type": "AzureBlobStorageLocation",
+				"container": "adf"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -20,11 +19,11 @@
 		},
 		"schema": [
 			{
-				"name": "id",
+				"name": "ID",
 				"type": "String"
 			},
 			{
-				"name": "random_str",
+				"name": " FNAME",
 				"type": "String"
 			}
 		]

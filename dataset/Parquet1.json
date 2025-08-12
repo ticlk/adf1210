@@ -1,18 +1,29 @@
 {
-	"name": "Binary2",
+	"name": "Parquet1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Binary",
+		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "adf"
+				"container": "spark0120"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "age",
+				"type": "INT64"
+			},
+			{
+				"name": "name",
+				"type": "UTF8"
 			}
-		}
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }

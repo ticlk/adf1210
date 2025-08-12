@@ -1,5 +1,5 @@
 {
-	"name": "pipeline2",
+	"name": "pipeline7",
 	"properties": {
 		"activities": [
 			{
@@ -16,39 +16,32 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "BinarySource",
-						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
-						},
-						"formatSettings": {
-							"type": "BinaryReadSettings"
-						}
+						"type": "CosmosDbSqlApiSource",
+						"preferredRegions": []
 					},
 					"sink": {
-						"type": "BinarySink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
-						}
+						"type": "CosmosDbSqlApiSink",
+						"writeBehavior": "upsert",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary1",
+						"referenceName": "CosmosDbNoSqlContainer1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Binary2",
+						"referenceName": "CosmosDbNoSqlContainer2",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2025-05-06T08:37:45Z"
+		"lastPublishTime": "2025-07-18T10:24:08Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

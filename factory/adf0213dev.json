@@ -1,0 +1,15 @@
+{
+	"name": "adf0213dev",
+	"location": "chinanorth3",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "9891aad0-4aeb-4291-8501-df1622648382",
+		"tenantId": "b388b808-0ec9-4a09-a414-a7cbbd8b7e9b",
+		"userAssignedIdentities": {
+			"/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourcegroups/rg1108/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi0106": {
+				"clientId": "617c0b1e-0b57-4ab9-b4f2-c02515b9c997",
+				"principalId": "4b1a98e0-440f-46a9-a948-23b6eb460fd4"
+			}
+		}
+	}
+}

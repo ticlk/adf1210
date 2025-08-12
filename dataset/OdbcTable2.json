@@ -1,16 +1,15 @@
 {
-	"name": "Binary3",
+	"name": "OdbcTable2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "FtpServer1",
+			"referenceName": "Odbc3",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Binary",
+		"type": "OdbcTable",
+		"schema": [],
 		"typeProperties": {
-			"location": {
-				"type": "FtpServerLocation"
-			}
+			"tableName": "`default`.`table0623`"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

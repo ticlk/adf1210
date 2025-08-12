@@ -5,9 +5,13 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://microsoftinternal.sharepoint.cn/sites/lihong/_api/web/GetFileByServerRelativeUrl('/sites/lihong/Shared%20Documents/excelfile1209.xlsx')/$value",
+			"url": "https://casesharing.iepwechat.jjmc.cn/storage/files/2025_02_19/5d6445743903630ba03b6bca885a3bfc.pptx",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "selfhostIR",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }

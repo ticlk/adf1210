@@ -1,5 +1,5 @@
 {
-	"name": "pipeline2",
+	"name": "pipeline5",
 	"properties": {
 		"activities": [
 			{
@@ -18,8 +18,10 @@
 					"source": {
 						"type": "BinarySource",
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "FtpReadSettings",
+							"recursive": true,
+							"useBinaryTransfer": true,
+							"disableChunking": false
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings"
@@ -35,20 +37,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary1",
+						"referenceName": "Binary4",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Binary2",
+						"referenceName": "Binary5",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
+		"folder": {
+			"name": "fold01"
+		},
 		"annotations": [],
-		"lastPublishTime": "2025-05-06T08:37:45Z"
+		"lastPublishTime": "2025-07-16T05:19:33Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

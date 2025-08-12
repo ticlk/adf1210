@@ -1,0 +1,7 @@
+{
+	"name": "AzureDatabricks686",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Databricks/workspaces/dbx0331",
+		"groupId": "databricks_ui_api"
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"name": "CosmosDbNoSqlContainer1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbNoSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {
+			"type": "object",
+			"properties": {
+				"vid": {
+					"type": "integer"
+				},
+				"fname": {
+					"type": "string"
+				},
+				"fnum": {
+					"type": "object",
+					"properties": {
+						"child01": {
+							"type": "integer"
+						},
+						"child02": {
+							"type": "string"
+						},
+						"child4": {
+							"type": "string"
+						}
+					}
+				},
+				"fcol01": {
+					"type": "object",
+					"properties": {
+						"child074": {
+							"type": "integer"
+						},
+						"child04": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"typeProperties": {
+			"collectionName": "coll"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

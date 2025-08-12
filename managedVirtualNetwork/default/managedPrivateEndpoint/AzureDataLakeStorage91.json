@@ -1,0 +1,10 @@
+{
+	"name": "AzureDataLakeStorage91",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/1f2ffc2d-4f6a-4fea-b142-31ae337d6aad/resourceGroups/rg1108/providers/Microsoft.Storage/storageAccounts/storage0331",
+		"groupId": "dfs",
+		"fqdns": [
+			"storage0331.dfs.core.chinacloudapi.cn"
+		]
+	}
+}

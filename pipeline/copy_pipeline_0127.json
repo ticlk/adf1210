@@ -1,5 +1,5 @@
 {
-	"name": "pipeline3",
+	"name": "copy_pipeline_0127",
 	"properties": {
 		"activities": [
 			{
@@ -16,13 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureMySqlSource",
-						"queryTimeout": "02:00:00"
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -31,8 +32,6 @@
 						}
 					},
 					"enableStaging": false,
-					"enableSkipIncompatibleRow": true,
-					"validateDataConsistency": true,
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,
@@ -44,20 +43,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureMySqlTable1",
+						"referenceName": "SQLDBdataset01",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText2",
+						"referenceName": "adlsdataset01",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2025-08-07T05:51:24Z"
+		"lastPublishTime": "2025-01-27T05:09:40Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

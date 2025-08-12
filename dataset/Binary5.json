@@ -1,16 +1,16 @@
 {
-	"name": "Binary1",
+	"name": "Binary5",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "HttpServer1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation",
-				"relativeUrl": "storage/files/2025_02_06/1ac45664a717af493340b5f3739add58.pptx"
+				"type": "AzureBlobStorageLocation",
+				"container": "test"
 			}
 		}
 	},

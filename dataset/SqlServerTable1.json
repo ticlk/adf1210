@@ -1,18 +1,12 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "SqlServerTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SQLDB_LS",
+			"referenceName": "SqlServer1",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"table_name": {
-				"type": "string",
-				"defaultValue": "test"
-			}
-		},
 		"annotations": [],
-		"type": "AzureSqlTable",
+		"type": "SqlServerTable",
 		"schema": [
 			{
 				"name": "id",
@@ -32,7 +26,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "table0403"
+			"table": "table0123"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

@@ -1,16 +1,15 @@
 {
-	"name": "Binary3",
+	"name": "CosmosDbNoSqlContainer2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "FtpServer1",
+			"referenceName": "CosmosDbNoSql2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Binary",
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
 		"typeProperties": {
-			"location": {
-				"type": "FtpServerLocation"
-			}
+			"collectionName": "coll"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
